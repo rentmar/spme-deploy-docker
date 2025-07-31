@@ -11,8 +11,10 @@ class ProyectoPlan(models.Model):
     #Relacion
     proyecto = models.ForeignKey(
         'api_estructuracion.Proyecto',
-        on_delete=models.CASCADE,
-        related_name='planificacion'
+        on_delete=models.SET_NULL,
+        related_name='planificacion',
+        null=True,
+        blank=True,
     )
 
 #Revision de plan
@@ -20,14 +22,17 @@ class PlanRevision(models.Model):
     cambios = models.JSONField(null=True, blank=True)
     razon = models.TextField(null=True, blank=True)
     #modified_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    modificado_por = models.CharField(null=True, blank=True)
+    modificado_por = models.CharField(max_length=150, null=True, blank=True)
     modificado_el = models.DateTimeField(auto_now_add=True)
-    version = models.IntegerField()
+    version = models.IntegerField(null=True, blank=True)
     #Relacion
     plan = models.ForeignKey(
         ProyectoPlan,
-        on_delete=models.CASCADE,
-        related_name='revisiones'
+        on_delete=models.SET_NULL,
+        related_name='revisiones',
+        null=True,
+        blank=True,
+
     )
     class Meta:
         ordering = ['-modificado_el']

@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: spmbe
+      MYSQL_USER: django_user
+      MYSQL_PASSWORD: django_pass
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    # healthcheck:
+    #   test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-pmysql"]
+    #   interval: 5s
+    #   timeout: 10s
+    #   retries: 10
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: mysql
+    ports:
+      - "8080:80"
+    restart: always
+
+  backend:
+    build: .
+    container_name: backend
+    depends_on:
+      - db
+    # depends_on:
+    #   db:
+    #     condition: service_healthy
+    environment:
+      - DJANGO_SETTINGS_MODULE=spmbe_backend.settings
+      - DB_HOST=db
+      - DB_NAME=spmbe
+      - DB_USER=django_user
+      - DB_PASSWORD=django_pass
+    volumes:
+      - ./spmbe_backend:/app
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
