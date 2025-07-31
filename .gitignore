@@ -1,0 +1,66 @@
+# Archivos de caché de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+
+# Archivos específicos de Django
+*.log
+*.sqlite3
+media/
+staticfiles/
+
+# Logs del servidor y de la aplicación
+*.log
+log/*.log
+/logs/
+
+# Archivos de Docker
+# Ignorar directorios de volumen de Docker Compose
+# (Asegúrate de que tus volúmenes nombrados no estén en estas rutas si no quieres ignorarlos)
+# Esto es crucial para que los datos de la DB no se versionen
+/mysql_data/
+/static_volume/
+/media_volume/
+
+# Archivos de caché específicos de Docker
+.dockerignore
+
+# Archivos de configuración de IDE (ej. VS Code, PyCharm)
+.vscode/
+.idea/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Credenciales y secretos (ej. claves API, variables de entorno)
+# Nunca subas estos archivos a un repositorio público
+.env.local
+.env.production
+.env.development
+*.env
+*.key
+*.pem
+
+# Archivos de paquetes y dependencias (si no gestionas todo con Docker)
+# Si instalas dependencias dentro del contenedor, estos no son estrictamente necesarios
+# pero son buenas prácticas si también desarrollas localmente
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Archivos de test (opcional, si los generas automáticamente)
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Archivos de build y distribución
+dist/
+build/
+*.egg-info/
