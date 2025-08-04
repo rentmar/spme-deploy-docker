@@ -13,11 +13,6 @@ services:
       - mysql_data:/var/lib/mysql
     ports:
       - "3306:3306"
-    # healthcheck:
-    #   test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-pmysql"]
-    #   interval: 5s
-    #   timeout: 10s
-    #   retries: 10
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin

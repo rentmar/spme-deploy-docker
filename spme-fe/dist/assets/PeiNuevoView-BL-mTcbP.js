@@ -1,0 +1,1 @@
+import{_ as o,b as n,i as r,f as t}from"./index-BV9e5Yt5.js";const s={};function a(c,e){return t(),n("div",null,e[0]||(e[0]=[r("h1",null,"Nuevo Pei",-1)]))}const l=o(s,[["render",a]]);export{l as default};

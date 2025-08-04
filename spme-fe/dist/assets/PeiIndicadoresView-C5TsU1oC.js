@@ -1,0 +1,1 @@
+import{_ as n,b as r,i as o,f as s}from"./index-BV9e5Yt5.js";const t={};function a(c,e){return s(),r("div",null,e[0]||(e[0]=[o("h1",null,"Indicadores Edit",-1)]))}const i=n(t,[["render",a]]);export{i as default};

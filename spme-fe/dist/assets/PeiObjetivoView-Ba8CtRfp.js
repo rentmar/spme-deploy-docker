@@ -1,0 +1,1 @@
+import{_ as t,b as o,i as r,f as n}from"./index-BV9e5Yt5.js";const s={};function a(i,e){return n(),o("div",null,e[0]||(e[0]=[r("h1",null,"Editar objetivos del PEI",-1)]))}const l=t(s,[["render",a]]);export{l as default};

@@ -1,0 +1,1 @@
+import{_ as t,b as l,i as n,f as r}from"./index-BV9e5Yt5.js";const a={};function o(s,e){return r(),l("div",null,e[0]||(e[0]=[n("h1",null,"Detalle del pei",-1)]))}const i=t(a,[["render",o]]);export{i as default};
