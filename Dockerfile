@@ -14,11 +14,11 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Copiar requirements e instalar dependencias Python
-COPY ./spmbe_backend/requirements.txt .
+COPY ./spme/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt gunicorn mysqlclient
 
 # Copiar el proyecto
-COPY ./spmbe_backend /app
+COPY ./spme /app
 
 # Puerto expuesto
 EXPOSE 8000
